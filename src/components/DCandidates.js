@@ -33,10 +33,10 @@ const DCandidates = ({classes,...props}) => {
     }, [props])
 
 //delete function
-const onDelete = (id) => {
-    if(window.confirm("are you sure??"))
-    props.deleteDCandidate(id)
-    
+    const onDelete = (id) => {
+        if(window.confirm("are you sure??"))
+        props.deleteDCandidate(id)
+        
 }
 
     return (

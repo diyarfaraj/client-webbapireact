@@ -15,22 +15,15 @@ const formatData = data => ({
 
 
 //get all data
-export const fetchAll = () => {
-
-    return dispatch => {
-         api.dCandidate().fetchAll()
-        .then(
-            response => {
-                console.log(response);
-                dispatch({
-                type:ACTION_TYPES.FETCH_ALL,
-                payload:response.data
-
-                })
-            }
-        )
-        .catch(err => console.log("ERRÖRRR connecting to api", err))
-    }
+export const fetchAll = () => dispatch => {
+    api.dCandidate().fetchAll()
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.FETCH_ALL,
+                payload: response.data
+            })
+        })
+        .catch(err => console.log(err))
 }
 
 //create
@@ -67,7 +60,7 @@ export const update = (id, data, onSuccess) => dispatch => {
 
 
 //delete
-export const deleteQ = (id, data, onSuccess) => dispatch => {
+export const deleteQ = (id, onSuccess) => dispatch => {
     
     api.dCandidate().delete(id)
     .then(res => {
